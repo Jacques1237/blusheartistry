@@ -52,7 +52,26 @@ function checkTestimonialsInView() {
   });
 }
 window.addEventListener('scroll', checkTestimonialsInView);
+// ...existing code...
 
+// Burger menu toggle for mobile
+const burger = document.getElementById('burger');
+const navMenu = document.getElementById('nav-menu');
+
+burger.addEventListener('click', () => {
+  navMenu.classList.toggle('active');
+  burger.classList.toggle('open');
+});
+
+// Optional: Close menu when a link is clicked (mobile)
+navMenu.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navMenu.classList.remove('active');
+    burger.classList.remove('open');
+  });
+});
+
+// ...existing code...
 // Contact form submission (demo only)
 document.getElementById('contactForm').addEventListener('submit', e => {
   e.preventDefault();

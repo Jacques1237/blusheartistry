@@ -5,16 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Blushé Makeup Artist</title>
 <link rel="stylesheet" href="./styles.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 
 <nav>
   <div class="logo">Blushé</div>
-  <ul>
+  <div class="burger" id="burger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <ul id="nav-menu">
     <li><a href="#about" class="nav-link active">About</a></li>
     <li><a href="#services" class="nav-link">Services</a></li>
     <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
-    <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+    <!--<li><a href="#testimonials" class="nav-link">Testimonials</a></li>-->
     <li><a href="#contact" class="nav-link">Contact</a></li>
   </ul>
 </nav>
@@ -32,7 +38,7 @@
 </header>
 
 <section id="about">
-  <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=600&q=80" alt="Makeup Artist at Work" />
+  <img src="assets\519607940_122118576602926414_5570035397470191513_n.jpg" alt="Makeup Artist at Work" />
   <div class="content">
     <h2>About Blushé</h2>
     <p>At Blushé, we believe makeup is an art and every face is a masterpiece waiting to be enhanced. With over 8 years of experience, our professional makeup artists use the latest trends and techniques to bring out your inner radiance for weddings, photoshoots, or everyday glamour.</p>
@@ -60,11 +66,13 @@
 <section id="portfolio">
   <h2>Portfolio</h2>
   <div class="gallery">
-    <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=400&q=80" alt="Glam Makeup 1" />
-    <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=400&q=80" alt="Glam Makeup 2" />
-    <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=400&q=80" alt="Glam Makeup 3" />
-    <img src="https://images.unsplash.com/photo-1542831371-d531d36971e6?auto=format&fit=crop&w=400&q=80" alt="Glam Makeup 4" />
-    <img src="https://images.unsplash.com/photo-1543852786-1cf6624b9987?auto=format&fit=crop&w=400&q=80" alt="Glam Makeup 5" />
+    <img src="assets\WhatsApp Image 2025-06-08 at 20.14.33_b5d79b15.jpg" alt="Glam Makeup 1" />
+    <img src="assets\WhatsApp Image 2025-06-08 at 20.14.33_c650cdd6.jpg" alt="Glam Makeup 2" />
+    <img src="assets/WhatsApp Image 2025-06-08 at 20.14.34_fe7e2cd8.jpg" alt="Glam Makeup 3" />
+    <img src="assets\WhatsApp Image 2025-06-08 at 20.14.34_f4d503a2.jpg" alt="Glam Makeup 4" />
+    <img src="assets\WhatsApp Image 2025-06-08 at 20.24.46_2295b482.jpg" alt="Glam Makeup 5" />
+    <img src="assets\WhatsApp Image 2025-07-20 at 14.51.37_80442dc2.jpg" alt="Glam Makeup 6" />
+    <img src="assets/WhatsApp Image 2025-07-28 at 18.25.08_43e41f07.jpg" alt="Glam Makeup 7" />
   </div>
 </section>
 
@@ -85,17 +93,19 @@
       <div class="author">– Lindiwe T.</div>
     </div>
   </div>
-</section>
+</section>-->
 
 <section id="contact">
   <h2>Contact</h2>
-  <form id="contactForm" autocomplete="off">
-    <input type="text" id="name" name="name" placeholder="Your Name" required minlength="2" />
-    <input type="email" id="email" name="email" placeholder="Your Email" required />
-    <textarea id="message" name="message" placeholder="Your Message" rows="5" required minlength="10"></textarea>
-    <button type="submit">Send Message</button>
-  </form>
-</section>-->
+    <div class="contact">
+    <p><strong>Email:</strong> <a href="mailto:info@blusheartistry.co.za">info@blusheartistry.co.za</a></p>
+    <p><strong>Phone:</strong> <a href="tel:+27796933162">+27 79 693 3262</a></p>
+    <p><strong>Instagram:</strong> <a href="https://instagram.com/blushe_artistry" target="_blank"><i class="fa-brands fa-linkedin"></i></a></p>
+    <p><strong>Facebook:</strong> <a href="https://www.facebook.com/profile.php?id=61577792430564" target="_blank"><i class="fa-brands fa-facebook"></i></a></p>
+    <p><strong>Location:</strong> Pretoria, South Africa</p>
+  </div>
+
+</section>
 
 <footer>
   &copy; 2025 Blushé Makeup Artist — Crafted with ❤️
