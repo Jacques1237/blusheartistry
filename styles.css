@@ -48,10 +48,10 @@ nav .logo {
 }
 nav .logo img {
   height: 140px;              /* Make the logo image bigger */
-  max-height: 140px;
-  width: 200px;               /* Adjust width to maintain aspect ratio */
+  max-height: 180px;
+  width: 250px;               /* Adjust width to maintain aspect ratio */
   display: block;
-  margin-top: -10px;         /* Adjust vertical alignment if needed */
+  margin-top: 5px;         /* Adjust vertical alignment if needed */
   margin-bottom: -10px;
 }
 nav .burger {
@@ -444,7 +444,7 @@ footer {
   }
   nav .logo img {
     height: 48px;
-    margin-top: 0;
+    margin-top: 10px;
     margin-bottom: 0;
   }
   .burger {
