@@ -127,14 +127,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
   window.addEventListener('scroll', function() {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    // Detect mobile
+    const isMobile = window.innerWidth <= 600;
+    // Move further up on desktop (e.g. -120px), adjust as needed
+    const hideY = isMobile ? '-120px' : '-120px';
+
     if (scrollTop > lastScrollTop && scrollTop > 50) {
       // Scrolling down
-      navbar.style.transform = 'translateY(-100%)';
+      navbar.style.transform = `translateY(${hideY})`;
     } else {
       // Scrolling up
       navbar.style.transform = 'translateY(0)';
     }
-    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
   });
 });
 
