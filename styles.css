@@ -35,7 +35,7 @@ nav {
   padding: 0 2rem;
   height: 70px;
   box-sizing: border-box;
-  transition: transform 0.3s ease;
+  transition: transform 0.4s cubic-bezier(.4,0,.2,1);
 }
 
 nav .logo {
@@ -49,7 +49,7 @@ nav .logo {
 nav .logo img {
   height: 140px;              /* Make the logo image bigger */
   max-height: 180px;
-  width: 250px;               /* Adjust width to maintain aspect ratio */
+  width: auto;               /* Adjust width to maintain aspect ratio */
   display: block;
   margin-top: 5px;         /* Adjust vertical alignment if needed */
   margin-bottom: -10px;
@@ -135,10 +135,11 @@ header p {
 
 /* Typing animation */
 .typing {
-  border-right: 3px solid #fff;
-  white-space: nowrap;
-  overflow: hidden;
-  animation: typing 6s steps(100) infinite, blink 4s step-end infinite;
+    font-style: italic;
+    font-size: 100px !important;
+    font-family: handyStuff !important;
+    font-weight: 300 !important; /* Make the font thinner */
+    letter-spacing: 2px;
 }
 @keyframes typing {
   0%, 100% { width: 0 }
@@ -443,7 +444,7 @@ footer {
     font-size: 1.2rem;
   }
   nav .logo img {
-    height: 48px;
+     height: 48px;
     margin-top: 10px;
     margin-bottom: 0;
   }
@@ -563,6 +564,9 @@ footer {
   }
   nav ul.active {
     display: flex;
+  }
+  .typing {
+    font-size: 2.2rem !important;
   }
 }
 
