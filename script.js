@@ -1,4 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
+  const bgVideo = document.getElementById('bgVideo');
+  if (bgVideo) {
+    bgVideo.addEventListener('ended', function() {
+      this.currentTime = 0;
+      this.play();
+    });
+  }
+
   // Highlight nav links on scroll
   const sections = document.querySelectorAll('section');
   const navLinks = document.querySelectorAll('nav ul li a');
