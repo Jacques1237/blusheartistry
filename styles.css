@@ -136,9 +136,9 @@ header p {
 /* Typing animation */
 .typing {
     font-style: italic;
-    font-size: 100px !important;
+    font-size: 80px !important;
     font-family: handyStuff !important;
-    font-weight: 300 !important; /* Make the font thinner */
+    font-weight: 500 !important; /* Make the font thinner */
     letter-spacing: 2px;
 }
 @keyframes typing {
