@@ -81,6 +81,21 @@ nav ul li a.active {
   font-family: 'Baskervville', serif;
   
 }
+
+@font-face {
+  font-family: 'Alta Regular';
+  src: url('fonts/alta-regular.otf') format('opentype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Better Regular';
+  src: url('fonts/Better Saturday free.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
 header {
   position: relative;
   height: 100vh;
@@ -92,6 +107,7 @@ header {
   text-align: center;
   color: white;
   background: #fbe9ef;;
+  
 }
 
 .bg-video {
@@ -120,6 +136,7 @@ header h1 {
   text-transform: uppercase;
   margin-bottom: 0.3rem;
   position: relative;
+  transition: transform 1.8s ease 0.3s, opacity 1.8s ease 0.3s;
 }
 header h1::after {
   content: "";
@@ -133,18 +150,43 @@ header h1::after {
 header p {
   font-size: 1.25rem;
   color: #f9d5dc;
-  max-width: 500px;
+  /* max-width: 500px; */
   margin-top: 1rem;
   line-height: 1.5;
+   transition: transform 1.8s ease 0.3s, opacity 1.8s ease 0.3s;
 }
-
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 /* Typing animation */
 .typing {
     font-style: italic;
-    font-size: 80px !important;
-    font-family:'Baskervville', serif;
+    font-size: 60px !important;
+    font-family:'Alta Regular', sans-serif;
     font-weight: 500 !important; /* Make the font thinner */
     letter-spacing: 2px;
+    opacity: 0; /* Start hidden */
+    animation: fadeInUp 1.5s ease 0.3s forwards;
+}
+.typing2 {
+    color: #fff;
+    font-style: italic;
+    font-size: 100px !important;
+    font-family:'Better Regular', sans-serif;
+    font-weight: 500 !important; /* Make the font thinner */
+    letter-spacing: 2px;
+    z-index: 1;
+    margin-bottom: auto;
+    opacity: 0; /* Start hidden */
+    animation: fadeInUp 1.5s ease 0.3s forwards;
+
 }
 @keyframes typing {
   0%, 100% { width: 0 }
@@ -198,7 +240,7 @@ section p {
   box-shadow: 0 10px 20px rgba(217,90,124,0.3);
   transform: translateX(-50px);
   opacity: 0;
-  transition: transform 0.8s ease, opacity 0.8s ease;
+  transition: transform 1.5s ease 0.5s, opacity 1.5s ease 0.5s;
 }
 #about.active img {
   transform: translateX(0);
@@ -268,6 +310,7 @@ section p {
     justify-content: center;
     margin-top: 1rem;
   }
+
 }
 #about.active .content {
   transform: translateX(0);
@@ -297,7 +340,7 @@ section p {
 
 /* Services */
 section#services {
-  background-image: url('assets/brush.jpg') ;
+  background-image: url('assets/brush3.jpg') ;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;;
@@ -314,12 +357,13 @@ section#services {
 .service {
   background: #fff0f6;
   padding: 2rem;
-  /*border-radius: 15px;*/
+  border-radius: 15px;
   box-shadow: 0 6px 15px rgb(217 90 124 / 0.15);
   width: 280px;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: default;
+  opacity: 0.9;
 }
 .service:hover {
   transform: translateY(-10px);
@@ -332,7 +376,7 @@ section#services {
 }
 .service p {
   font-size: 1rem;
-  color: #6b3c4a;
+  color: #393939;
  
 }
 
@@ -340,11 +384,11 @@ section#services {
 .contact {
   background: rgba(255, 240, 246, 0.9);
   padding: 2rem;
-  /*border-radius: 15px;*/
+  border-radius: 15px;
   box-shadow: 0 6px 15px rgb(217 90 124 / 0.15);
   width: 300px;
   text-align: left;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* transition: transform 0.3s ease, box-shadow 0.3s ease; */
   cursor: default;
   margin: 0 auto; /* Center horizontally */
 }
@@ -387,7 +431,7 @@ section#contact {
   width: 110px;
   height: 110px;
   object-fit: cover;
-  /*border-radius: 10px;*/
+  border-radius: 10px;
   cursor: pointer;
   transition: transform 0.2s;
 }
@@ -406,7 +450,7 @@ section#contact {
 .testimonial {
   background: #fbe9ef;
   padding: 2rem;
-  /*border-radius: 15px;*/
+  border-radius: 15px;
   box-shadow: 0 8px 15px rgb(217 90 124 / 0.2);
   font-style: italic;
   position: relative;
@@ -447,7 +491,7 @@ section#contact {
 #contact input, #contact textarea {
   padding: 0.8rem 1rem;
   border: 2px solid #d95a7c;
-  /*border-radius: 10px;*/
+  border-radius: 10px;
   font-size: 1rem;
   font-family:'Baskervville', serif;
   resize: vertical;
@@ -464,7 +508,7 @@ section#contact {
   color: white;
   font-weight: 700;
   font-size: 1.2rem;
-  /* border-radius: 12px; */
+  border-radius: 12px;
   cursor: pointer;
   transition: background 0.3s ease;
 }
@@ -510,7 +554,7 @@ footer {
 #lightbox img {
   max-width: 90vw;
   max-height: 80vh;
-  /* border-radius: 12px; */
+  border-radius: 12px;
   box-shadow: 0 0 20px rgba(255,255,255,0.3);
   z-index: 10000;
   transition: opacity 0.3s, transform 0.3s;
@@ -674,8 +718,24 @@ footer {
     display: flex;
   }
   .typing {
-    font-size: 2.2rem !important;
+    font-size: 1.2rem !important;
   }
+  .typing2 {
+    font-size: 3.5rem !important;
+  }
+  header h1::after{
+    height: 2px;
+  }
+  .beauty {
+  color: #393939;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1rem;
+  
+}
+  section h2.beauty::after {
+    background: #393939 !important;
+}
 }
 
 .lightbox-arrow {
