@@ -13,28 +13,50 @@
     <priority>1.0</priority>
   </url>
 
-  <!-- About page -->
+  <!-- About section (main page) -->
   <url>
-    <loc>https://www.blusheartistry.co.za/about</loc>
+    <loc>https://www.blusheartistry.co.za/#about</loc>
     <lastmod>2025-08-14T19:58:47+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Services page -->
+  <!-- Services section (main page) -->
   <url>
-    <loc>https://www.blusheartistry.co.za/services</loc>
+    <loc>https://www.blusheartistry.co.za/#services</loc>
     <lastmod>2025-08-14T19:58:47+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Contact page -->
+  <!-- Contact section (main page) -->
   <url>
-    <loc>https://www.blusheartistry.co.za/contact</loc>
+    <loc>https://www.blusheartistry.co.za/#contact</loc>
     <lastmod>2025-08-14T19:58:47+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+
+  <!-- SEO Service Pages -->
+  <url>
+    <loc>https://www.blusheartistry.co.za/bridal-makeup-pretoria.html</loc>
+    <lastmod>2025-08-15T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.blusheartistry.co.za/matric-farewell-makeup-pretoria.html</loc>
+    <lastmod>2025-08-15T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.blusheartistry.co.za/photoshoot-makeup-pretoria.html</loc>
+    <lastmod>2025-08-15T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
 
 </urlset>
