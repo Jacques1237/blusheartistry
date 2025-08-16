@@ -721,7 +721,8 @@ footer {
     font-size: 1.2rem !important;
   }
   .typing2 {
-    font-size: 3.5rem !important;
+    margin-left: -5px;
+    font-size: 3.2rem !important;
   }
   header h1::after{
     height: 2px;
@@ -759,4 +760,72 @@ footer {
 }
 #lightbox.hidden {
   display: none !important;
+}
+
+/* Slider container */
+.slider {
+  width: 90%;
+  max-width: 550px;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 10px;
+  max-height: 700px;  /*prevents slider from being too tall */
+   position: relative; /* Add this */
+}
+
+/* Slides container */
+.slides {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Individual slide */
+.slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Images fill the slide */
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;       /* fills slide, keeps aspect ratio */
+  display: block;
+}
+
+/* Navigation buttons */
+button.prev, button.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,0); /* semi-transparent black */
+  color: white;
+  border: none;
+  font-size: 2rem;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10; /* make sure it sits on top of images */
+}
+
+button.prev { left: 10px; }
+button.next { right: 10px; }
+
+@media (max-width: 480px) {
+  button.prev, button.next {
+    font-size: 1.5rem;    /* slightly smaller */
+    padding: 8px;         /* less padding */
+  }
+
+  button.prev { left: 5px; }   /* closer to edge but not too much */
+  button.next { right: 5px; }
+}
+
+@media (max-width: 480px) {
+  button.prev, button.next {
+    top: 45%;  /* slightly lower for better visibility */
+  }
 }
