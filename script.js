@@ -141,6 +141,45 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
   });
+
+(() => {
+  const slides = document.querySelectorAll('.slide');
+  const slidesContainer = document.querySelector('.slides');
+  const prev = document.querySelector('.prev');
+  const next = document.querySelector('.next');
+  let currentIndex = 0;
+  let slideInterval;
+
+  function updateSlidePosition() {
+    slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+  }
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % slides.length;
+    updateSlidePosition();
+  }
+
+  function prevSlide() {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    updateSlidePosition();
+  }
+
+  next.addEventListener('click', () => { nextSlide(); resetInterval(); });
+  prev.addEventListener('click', () => { prevSlide(); resetInterval(); });
+
+  function startInterval() {
+    slideInterval = setInterval(nextSlide, 3000);
+  }
+
+  function resetInterval() {
+    clearInterval(slideInterval);
+    startInterval();
+  }
+
+  updateSlidePosition();
+  startInterval();
+})();
+
 });
 
 
