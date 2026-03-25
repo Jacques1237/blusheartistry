@@ -9,7 +9,11 @@
 <meta name="twitter:image" content="https://www.blusheartistry.co.za/assets/BlusheLogo.png" />
 <meta name="description" content="Blushé Artistry offers flawless bridal, matric farewell, and special occasion makeup in Pretoria, South Africa. Look and feel your best — book your makeup session today!">
 <meta name="keywords" content="Blushé Artistry, Blushe Artistry, makeup artist Pretoria, bridal makeup, matric farewell makeup, photoshoot makeup, South Africa makeup artist, professional makeup Pretoria">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./styles.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <script type="application/ld+json">
 {
@@ -30,11 +34,36 @@
 }
 </script>
 </head>
-<body>
+<body class="preloading">
+
+<!-- ===================== PRELOADER ===================== -->
+<div id="preloader">
+  <div class="preloader-inner">
+    <img src="assets/logop.png" alt="Blushé Artistry" class="preloader-logo" />
+    <p class="preloader-tagline">Beauty. Artistry. You.</p>
+    <div class="preloader-bar-wrap">
+      <div class="preloader-bar"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== GLOBAL CANVAS (section bursts) ===================== -->
+<canvas id="globalCanvas"></canvas>
+
+<!-- ===================== FLOATING BOOK NOW CTA ===================== -->
+<a href="#booking" class="float-book" id="floatBook">
+  <i class="fa-regular fa-calendar"></i>
+  <span>Book Now</span>
+</a>
+
+<!-- ===================== BACK TO TOP ===================== -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+  <i class="fa-solid fa-chevron-up"></i>
+</button>
 
 <nav>
   <div class="logo">
-    <img src="assets\logop.png" alt="Blushé Logo" style="height: 180px;">
+    <img src="assets/logop.png" alt="Blushé Logo">
   </div>
   <div class="burger" id="burger">
     <span></span>
@@ -45,150 +74,497 @@
     <li><a href="#about" class="nav-link active">ABOUT</a></li>
     <li><a href="#services" class="nav-link">SERVICES</a></li>
     <li><a href="#portfolio" class="nav-link">PORTFOLIO</a></li>
-    <!--<li><a href="#testimonials" class="nav-link">Testimonials</a></li>-->
+    <li><a href="#booking" class="nav-link">BOOK</a></li>
     <li><a href="#contact" class="nav-link">CONTACT</a></li>
   </ul>
 </nav>
 
 <header>
-  <div class="header-content">
   <video autoplay muted loop playsinline webkit-playsinline class="bg-video" id="bgVideo">
     <source src="assets/Makeup2.mp4" type="video/mp4">
   </video>
+  <canvas id="powderCanvas"></canvas>
+  <div class="header-content">
     <p class="typing2">Makeup Artist</p>
     <h1 class="typing">Your beauty, professionally refined.</h1>
     <h1 style="display:none;">Professional Makeup Artist in Pretoria – Blushé Artistry</h1>
+    <a class="cta-btn" href="#about">Discover the Art</a>
+  </div>
+  <div class="scroll-indicator">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
   </div>
 </header>
 
+<!-- ===================== ABOUT ===================== -->
 <section id="about">
   <div class="about-flex">
     <div class="content">
+      <span class="section-label">About</span>
       <h2>Hello, from Blushé Artistry!</h2>
       <p>I'm Zoané Cilliers, the heart and hands behind Blushé Artistry. As a professional makeup artist, my passion lies in helping women feel confident, radiant, and undeniably beautiful — inside and out.
-        <br><br>Blushé Artistry was created with a simple mission: to celebrate and enhance every woman’s natural beauty through the transformative power of makeup. Whether it's for a special occasion, a moment of self-care, or one of the most important days of your life — your wedding day — I’m here to ensure you look and feel your absolute best.
+        <br><br>Blushé Artistry was created with a simple mission: to celebrate and enhance every woman's natural beauty through the transformative power of makeup. Whether it's for a special occasion, a moment of self-care, or one of the most important days of your life — your wedding day — I'm here to ensure you look and feel your absolute best.
         <br><br>With a calm, personal approach and a deep love for what I do, I bring artistry, attention to detail, and genuine care to every face I work with. Because I truly believe that when you feel beautiful, it shows in everything you do.
-        Thank you for being here — I can’t wait to be part of your beauty journey.</p>
+        Thank you for being here — I can't wait to be part of your beauty journey.</p>
     </div>
     <div class="about-photo">
-      <img src="assets/about1.jpg" alt="Makeup Artist at Work" />
-      <img src="assets/about2.jpg" alt="Makeup Artist at Work" />
+        <img src="assets/about1.jpg" alt="Makeup Artist at Work" loading="lazy" />
+        <img src="assets/about2.jpg" alt="Makeup Artist at Work" loading="lazy" />
     </div>
   </div>
 </section>
 
+<!-- ===================== STATS ===================== -->
+<section id="stats">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <div class="stat-number" data-target="500" data-suffix="+">0</div>
+      <div class="stat-label">Happy Clients</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number" data-target="80" data-suffix="+">0</div>
+      <div class="stat-label">Brides Made Beautiful</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number" data-target="5" data-suffix="+">0</div>
+      <div class="stat-label">Years of Experience</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number" data-target="100" data-suffix="%">0</div>
+      <div class="stat-label">Dedicated to You</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SERVICES ===================== -->
 <section id="services">
+  <span class="section-label">What I Offer</span>
   <h2 class="beauty">Beauty Services</h2>
-  <p class="beauty" style="font-style: italic;font-size: x-large;">Where beauty meets expertise</p>
+  <p class="beauty services-subtitle">Where beauty meets expertise</p>
   <div class="service-list">
-    <div class="service">
+    <div class="service reveal">
+      <span class="service-icon">💍</span>
       <h3>The Bridal Experience</h3>
-      <p>From soft, romantic glam to bold, timeless elegance - your dream bridal look starts here.</p>
+      <p>From soft, romantic glam to bold, timeless elegance — your dream bridal look starts here.</p>
     </div>
-    <div class="service">
+    <div class="service reveal" style="transition-delay: 0.15s;">
+      <span class="service-icon">✨</span>
       <h3>Red Carpet Ready</h3>
-      <p>Matric farewell, birthdays, and moments made to be remembered</p>
+      <p>Matric farewell, birthdays, and moments made to be remembered.</p>
     </div>
-    <div class="service">
+    <div class="service reveal" style="transition-delay: 0.3s;">
+      <span class="service-icon">📸</span>
       <h3>Makeup for the Lens</h3>
-      <p>Makeup desigend to look flawless under every flash, light, and lens.</p>
+      <p>Makeup designed to look flawless under every flash, light, and lens.</p>
     </div>
   </div>
 </section>
 
+<!-- ===================== BEFORE / AFTER ===================== -->
+<section id="before-after">
+  <span class="section-label">Transformations</span>
+  <h2>Before &amp; After</h2>
+  <p class="ba-intro">See the difference a professional touch makes.</p>
+  <!-- Replace Gallery1/Gallery2 with actual before/after photos -->
+  <div class="ba-container" id="baContainer">
+    <div class="ba-after">
+      <img src="assets/Gallery2.jpg" alt="After makeup by Blushé Artistry" draggable="false" />
+      <span class="ba-label ba-label-after">After</span>
+    </div>
+    <div class="ba-before" id="baBefore">
+      <img src="assets/Gallery1.jpg" alt="Before makeup by Blushé Artistry" draggable="false" />
+      <span class="ba-label ba-label-before">Before</span>
+    </div>
+    <div class="ba-handle" id="baHandle">
+      <div class="ba-handle-line"></div>
+      <div class="ba-handle-circle">&#9668;&nbsp;&#9658;</div>
+      <div class="ba-handle-line"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PORTFOLIO (masonry) ===================== -->
 <section id="portfolio">
+  <span class="section-label">My Work</span>
   <h2>Portfolio</h2>
-  <!-- <div class="gallery">
-    <img src="assets/Gallery1.jpg" alt="Bridal makeup by Blushé Artistry in Pretoria">
-    <img src="assets/Gallery2.jpg" alt="Matric farewell makeup in Pretoria by Blushé Artistry">
-    <img src="assets\Gallery3.jpg" alt="Glam Makeup 2" />
-    <img src="assets\Gallery4.jpg" alt="Glam Makeup 2" />
-    <img src="assets\Gallery5.jpg" alt="Glam Makeup 2" />
-    <img src="assets\Gallery6.jpg" alt="Glam Makeup 2" />
-    <img src="assets\Gallery7.jpg" alt="Glam Makeup 2" />
-    <img src="assets\Gallery8.jpg" alt="Glam Makeup 2" />
-    <img src="assets\Gallery9.jpg" alt="Glam Makeup 2" />
-    <img src="assets\Gallery10.jpg" alt="Glam Makeup 2" />
-    <img src="assets\Gallery11.jpg" alt="Glam Makeup 2" />
-    <img src="assets\Gallery12.jpg" alt="Glam Makeup 2" />
-    <img src="assets\Gallery13.jpg" alt="Glam Makeup 2" />
-    <img src="assets\Gallery14.jpg" alt="Glam Makeup 2" />
-    <img src="assets\Gallery15.jpg" alt="Glam Makeup 2" />
-    <img src="assets\Gallery16.jpg" alt="Glam Makeup 2" />
-    
-  </div> -->
+
   <div id="lightbox" class="hidden">
     <button class="lightbox-arrow left">&#xFFE9;</button>
     <img src="" alt="Enlarged Makeup" />
     <button class="lightbox-arrow right">&#xFFEB;</button>
   </div>
-  <div class="slider">
-  <div class="slides">
-    <img src="assets/Gallery1.jpg" alt="Bridal makeup by Blushé Artistry in Pretoria" class="slide active">
-    <img src="assets/Gallery2.jpg" alt="Matric farewell makeup in Pretoria by Blushé Artistry" class="slide">
-    <img src="assets/Gallery3.jpg" alt="Glam Makeup 2" class="slide"/>
-    <img src="assets/Gallery4.jpg" alt="Glam Makeup 2" class="slide"/>
-    <img src="assets/Gallery5.jpg" alt="Glam Makeup 2" class="slide"/>
-    <img src="assets/Gallery6.jpg" alt="Glam Makeup 2" class="slide"/>
-    <img src="assets/Gallery7.jpg" alt="Glam Makeup 2" class="slide"/>
-    <img src="assets/Gallery8.jpg" alt="Glam Makeup 2" class="slide"/>
-    <img src="assets/Gallery9.jpg" alt="Glam Makeup 2" class="slide"/>
-    <img src="assets/Gallery10.jpg" alt="Glam Makeup 2" class="slide"/>
-    <img src="assets/Gallery11.jpg" alt="Glam Makeup 2" class="slide"/>
-    <img src="assets/Gallery12.jpg" alt="Glam Makeup 2" class="slide"/>
-    <img src="assets/Gallery13.jpg" alt="Glam Makeup 2" class="slide"/>
-    <img src="assets/Gallery14.jpg" alt="Glam Makeup 2" class="slide"/>
-    <img src="assets/Gallery15.jpg" alt="Glam Makeup 2" class="slide"/>
-    <img src="assets/Gallery16.jpg" alt="Glam Makeup 2" class="slide"/>
+
+  <div class="masonry-grid">
+    <div class="masonry-item">
+      <img src="assets/Gallery1.jpg"  alt="Bridal makeup by Blushé Artistry in Pretoria" loading="lazy">
+      <div class="masonry-overlay"><i class="fa-solid fa-expand"></i></div>
+    </div>
+    <div class="masonry-item">
+      <img src="assets/Gallery2.jpg"  alt="Matric farewell makeup in Pretoria by Blushé Artistry" loading="lazy">
+      <div class="masonry-overlay"><i class="fa-solid fa-expand"></i></div>
+    </div>
+    <div class="masonry-item">
+      <img src="assets/Gallery3.jpg"  alt="Glam Makeup" loading="lazy">
+      <div class="masonry-overlay"><i class="fa-solid fa-expand"></i></div>
+    </div>
+    <div class="masonry-item">
+      <img src="assets/Gallery4.jpg"  alt="Glam Makeup" loading="lazy">
+      <div class="masonry-overlay"><i class="fa-solid fa-expand"></i></div>
+    </div>
+    <div class="masonry-item">
+      <img src="assets/Gallery5.jpg"  alt="Glam Makeup" loading="lazy">
+      <div class="masonry-overlay"><i class="fa-solid fa-expand"></i></div>
+    </div>
+    <div class="masonry-item">
+      <img src="assets/Gallery6.jpg"  alt="Glam Makeup" loading="lazy">
+      <div class="masonry-overlay"><i class="fa-solid fa-expand"></i></div>
+    </div>
+    <div class="masonry-item">
+      <img src="assets/Gallery7.jpg"  alt="Glam Makeup" loading="lazy">
+      <div class="masonry-overlay"><i class="fa-solid fa-expand"></i></div>
+    </div>
+    <div class="masonry-item">
+      <img src="assets/Gallery8.jpg"  alt="Glam Makeup" loading="lazy">
+      <div class="masonry-overlay"><i class="fa-solid fa-expand"></i></div>
+    </div>
+    <div class="masonry-item masonry-extra">
+      <img src="assets/Gallery9.jpg"  alt="Glam Makeup" loading="lazy">
+      <div class="masonry-overlay"><i class="fa-solid fa-expand"></i></div>
+    </div>
+    <div class="masonry-item masonry-extra">
+      <img src="assets/Gallery10.jpg" alt="Glam Makeup" loading="lazy">
+      <div class="masonry-overlay"><i class="fa-solid fa-expand"></i></div>
+    </div>
+    <div class="masonry-item masonry-extra">
+      <img src="assets/Gallery11.jpg" alt="Glam Makeup" loading="lazy">
+      <div class="masonry-overlay"><i class="fa-solid fa-expand"></i></div>
+    </div>
+    <div class="masonry-item masonry-extra">
+      <img src="assets/Gallery12.jpg" alt="Glam Makeup" loading="lazy">
+      <div class="masonry-overlay"><i class="fa-solid fa-expand"></i></div>
+    </div>
+    <div class="masonry-item masonry-extra">
+      <img src="assets/Gallery13.jpg" alt="Glam Makeup" loading="lazy">
+      <div class="masonry-overlay"><i class="fa-solid fa-expand"></i></div>
+    </div>
+    <div class="masonry-item masonry-extra">
+      <img src="assets/Gallery14.jpg" alt="Glam Makeup" loading="lazy">
+      <div class="masonry-overlay"><i class="fa-solid fa-expand"></i></div>
+    </div>
+    <div class="masonry-item masonry-extra">
+      <img src="assets/Gallery15.jpg" alt="Glam Makeup" loading="lazy">
+      <div class="masonry-overlay"><i class="fa-solid fa-expand"></i></div>
+    </div>
+    <div class="masonry-item masonry-extra">
+      <img src="assets/Gallery16.jpg" alt="Glam Makeup" loading="lazy">
+      <div class="masonry-overlay"><i class="fa-solid fa-expand"></i></div>
+    </div>
   </div>
 
-  <!-- Navigation buttons -->
-  <button class="prev">&#10094;</button>
-  <button class="next">&#10095;</button>
-</div>
+  <div class="gallery-toggle-wrap">
+    <button class="gallery-toggle-btn" id="galleryToggle">
+      <span class="gallery-toggle-text">View All 16 Photos</span>
+      <i class="fa-solid fa-chevron-down gallery-toggle-icon"></i>
+    </button>
+  </div>
 </section>
 
+<!-- ===================== TESTIMONIALS ===================== -->
+<section id="testimonials">
+  <span class="section-label">Kind Words</span>
+  <h2>Client Love</h2>
+  <div class="testimonials-outer">
+    <button class="testi-arrow testi-arrow-left" id="testiPrev" aria-label="Previous testimonial">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+    <div class="testimonials-track-wrap">
+      <div class="testimonials-track" id="testiTrack">
 
-<!--<section id="testimonials">
-  <h2>Testimonials</h2>
-  <div class="testimonial-list">
-    <div class="testimonial">
-      <p>Blushé made me feel like a queen on my wedding day. The makeup lasted all night and I felt stunning!</p>
-      <div class="author">– Amanda K.</div>
+        <div class="testi-card">
+          <div class="testi-quote">&ldquo;</div>
+          <p class="testi-text">Blushé made me feel like a queen on my wedding day. The makeup lasted all night!</p>
+          <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="testi-author">Amanda K.</div>
+          <span class="testi-badge">Bridal</span>
+        </div>
+
+        <div class="testi-card">
+          <div class="testi-quote">&ldquo;</div>
+          <p class="testi-text">Zoané is incredibly talented. She understood exactly what I wanted and made it even better.</p>
+          <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="testi-author">Chantelle V.</div>
+          <span class="testi-badge">Matric Farewell</span>
+        </div>
+
+        <div class="testi-card">
+          <div class="testi-quote">&ldquo;</div>
+          <p class="testi-text">My photoshoot makeup was absolutely flawless. Every photo looked incredible!</p>
+          <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="testi-author">Bianca R.</div>
+          <span class="testi-badge">Photoshoot</span>
+        </div>
+
+        <div class="testi-card">
+          <div class="testi-quote">&ldquo;</div>
+          <p class="testi-text">I always get compliments when Zoané does my makeup. She truly brings out the best in my features.</p>
+          <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="testi-author">Lindiwe T.</div>
+          <span class="testi-badge">Special Occasion</span>
+        </div>
+
+        <div class="testi-card">
+          <div class="testi-quote">&ldquo;</div>
+          <p class="testi-text">Warm, professional, and so talented. I felt beautiful and confident all day.</p>
+          <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="testi-author">Sarah M.</div>
+          <span class="testi-badge">Bridal</span>
+        </div>
+
+      </div>
     </div>
-    <div class="testimonial">
-      <p>Such talented artists! They taught me so much during my makeup lesson and now I feel confident applying my own makeup daily.</p>
-      <div class="author">– Sarah M.</div>
-    </div>
-    <div class="testimonial">
-      <p>I always get compliments when I come to Blushé for events. They truly bring out the best in my features.</p>
-      <div class="author">– Lindiwe T.</div>
-    </div>
+    <button class="testi-arrow testi-arrow-right" id="testiNext" aria-label="Next testimonial">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
   </div>
-</section>-->
+  <div class="testi-dots" id="testiDots">
+    <button class="testi-dot active" data-index="0" aria-label="Testimonial 1"></button>
+    <button class="testi-dot" data-index="1" aria-label="Testimonial 2"></button>
+    <button class="testi-dot" data-index="2" aria-label="Testimonial 3"></button>
+    <button class="testi-dot" data-index="3" aria-label="Testimonial 4"></button>
+    <button class="testi-dot" data-index="4" aria-label="Testimonial 5"></button>
+  </div>
+</section>
 
+<!-- ===================== BOOKING ===================== -->
+<section id="booking">
+  <span class="section-label">Let's Connect</span>
+  <h2>Book an Enquiry</h2>
+  <!--
+    FORMSPREE SETUP (one-time, ~2 minutes):
+    1. Go to https://formspree.io and sign in with zoaneb1@gmail.com
+    2. Click "New Form", name it "Blushe Enquiry"
+    3. Copy your endpoint — looks like: https://formspree.io/f/xabcdefg
+    4. Replace YOUR_FORMSPREE_ID below with that endpoint
+  -->
+  <div class="booking-card">
+    <form action="https://formspree.io/f/xykbywjk" method="POST" class="booking-form" id="bookingForm">
+      <input type="hidden" name="_subject" value="New Booking Enquiry — Blushé Artistry">
+      <input type="hidden" name="_replyto" id="replyToField">
+      <div class="booking-row">
+        <div class="booking-field">
+          <label for="bookName">Full Name</label>
+          <input type="text" id="bookName" name="name" placeholder="Your full name" required />
+        </div>
+        <div class="booking-field">
+          <label for="bookEmail">Email Address</label>
+          <input type="email" id="bookEmail" name="email" placeholder="your@email.com" required />
+        </div>
+      </div>
+      <div class="booking-row">
+        <div class="booking-field">
+          <label for="bookPhone">Phone Number</label>
+          <input type="tel" id="bookPhone" name="phone" placeholder="+27 XX XXX XXXX" />
+        </div>
+        <div class="booking-field">
+          <label for="bookOccasion">Occasion</label>
+          <select id="bookOccasion" name="occasion">
+            <option value="" disabled selected>Select occasion</option>
+            <option value="Bridal">Bridal</option>
+            <option value="Matric Farewell">Matric Farewell</option>
+            <option value="Photoshoot">Photoshoot</option>
+            <option value="Birthday">Birthday</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+      </div>
+      <div class="booking-row">
+        <div class="booking-field booking-field-full">
+          <label for="bookDate">Preferred Date</label>
+          <input type="text" id="bookDate" name="date" placeholder="Select a date" readonly />
+        </div>
+      </div>
+      <div class="booking-row">
+        <div class="booking-field booking-field-full">
+          <label for="bookMessage">Message</label>
+          <textarea id="bookMessage" name="message" placeholder="Tell me about your vision, any special requirements..." rows="4"></textarea>
+        </div>
+      </div>
+      <div class="booking-error" id="bookingError">Something went wrong — please try again or email us directly at zoaneb1@gmail.com</div>
+      <button type="submit" class="booking-submit" id="bookingSubmit">Send Enquiry</button>
+    </form>
+  </div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section id="faq">
+  <span class="section-label">Questions</span>
+  <h2>Frequently Asked</h2>
+  <div class="faq-list" id="faqList">
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        <span>How far in advance should I book?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">I recommend booking at least 4–6 weeks in advance for special occasions, and 3–6 months for bridal services. Popular dates fill up quickly, so earlier is always better!</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        <span>Do you travel to my venue?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">Absolutely! I travel to your home, venue, or any location in and around Pretoria. Travel fees may apply for locations further afield — just ask when you enquire.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        <span>How long does a makeup session take?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">A bridal makeup session typically takes 1.5–2 hours. For matric farewell, birthdays, and special occasions, allow around 45–60 minutes per person.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        <span>Do you offer a makeup trial?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">Yes! I highly recommend a trial, especially for brides. Trials are done in advance so we can perfect your look and ensure you feel completely confident on the day.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        <span>What products do you use?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">I work with a curated collection of professional-grade products chosen for their performance, longevity, and skin-friendliness — including brands loved by top industry artists.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        <span>What is your cancellation policy?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">A deposit is required to secure your booking. Cancellations made less than 48 hours before the appointment may forfeit the deposit. Please get in touch as soon as possible if plans change.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================== CONTACT ===================== -->
 <section id="contact">
+  <span class="section-label">Get in Touch</span>
   <h2>Contact</h2>
-    <div class="contact">
-    <p><strong>Email:</strong> <a href="mailto:zoaneb1@gmail.com">zoaneb1@gmail.com</a></p>
-    <p><strong>Phone:</strong> <a href="tel:+27796933262">+27 79 693 3262</a></p>
-    <p><strong>Instagram:</strong> <a href="https://instagram.com/blushe_artistry" target="_blank"><i class="fa-brands fa-instagram"></i></a></p>
-    <p><strong>Facebook:</strong> <a href="https://www.facebook.com/profile.php?id=61577792430564" target="_blank"><i class="fa-brands fa-facebook"></i></a></p>
-    <p><strong>Location:</strong> Pretoria, South Africa</p>
+  <div class="contact reveal">
+    <p><strong>Email</strong> <a href="mailto:zoaneb1@gmail.com">zoaneb1@gmail.com</a></p>
+    <p><strong>Phone</strong> <a href="tel:+27796933262">+27 79 693 3262</a></p>
+    <p><strong>Instagram</strong> <a href="https://instagram.com/blushe_makeup_artistry" target="_blank"><i class="fa-brands fa-instagram"></i></a></p>
+    <p><strong>Facebook</strong> <a href="https://www.facebook.com/profile.php?id=61577792430564" target="_blank"><i class="fa-brands fa-facebook"></i></a></p>
+    <p><strong>Location</strong> Pretoria, South Africa</p>
   </div>
-
 </section>
 
+<!-- ===================== INSTAGRAM ===================== -->
+<section id="instagram">
+  <span class="section-label">Follow Along</span>
+  <h2>On Instagram</h2>
+  <div class="ig-handle-display">
+    <i class="fa-brands fa-instagram ig-gradient-icon"></i>
+    <span>@blushe_makeup_artistry</span>
+  </div>
+  <div class="ig-grid">
+    <div class="ig-item">
+      <img src="assets/Gallery8.jpg"  alt="Blushé Artistry on Instagram" loading="lazy" />
+      <div class="ig-overlay">
+        <i class="fa-solid fa-heart"></i>
+        <span>View</span>
+      </div>
+    </div>
+    <div class="ig-item">
+      <img src="assets/Gallery9.jpg"  alt="Blushé Artistry on Instagram" loading="lazy" />
+      <div class="ig-overlay">
+        <i class="fa-solid fa-heart"></i>
+        <span>View</span>
+      </div>
+    </div>
+    <div class="ig-item">
+      <img src="assets/Gallery10.jpg" alt="Blushé Artistry on Instagram" loading="lazy" />
+      <div class="ig-overlay">
+        <i class="fa-solid fa-heart"></i>
+        <span>View</span>
+      </div>
+    </div>
+    <div class="ig-item">
+      <img src="assets/Gallery11.jpg" alt="Blushé Artistry on Instagram" loading="lazy" />
+      <div class="ig-overlay">
+        <i class="fa-solid fa-heart"></i>
+        <span>View</span>
+      </div>
+    </div>
+    <div class="ig-item">
+      <img src="assets/Gallery12.jpg" alt="Blushé Artistry on Instagram" loading="lazy" />
+      <div class="ig-overlay">
+        <i class="fa-solid fa-heart"></i>
+        <span>View</span>
+      </div>
+    </div>
+    <div class="ig-item">
+      <img src="assets/Gallery13.jpg" alt="Blushé Artistry on Instagram" loading="lazy" />
+      <div class="ig-overlay">
+        <i class="fa-solid fa-heart"></i>
+        <span>View</span>
+      </div>
+    </div>
+    <div class="ig-item">
+      <img src="assets/Gallery14.jpg" alt="Blushé Artistry on Instagram" loading="lazy" />
+      <div class="ig-overlay">
+        <i class="fa-solid fa-heart"></i>
+        <span>View</span>
+      </div>
+    </div>
+    <div class="ig-item">
+      <img src="assets/Gallery15.jpg" alt="Blushé Artistry on Instagram" loading="lazy" />
+      <div class="ig-overlay">
+        <i class="fa-solid fa-heart"></i>
+        <span>View</span>
+      </div>
+    </div>
+    <div class="ig-item">
+      <img src="assets/Gallery16.jpg" alt="Blushé Artistry on Instagram" loading="lazy" />
+      <div class="ig-overlay">
+        <i class="fa-solid fa-heart"></i>
+        <span>View</span>
+      </div>
+    </div>
+  </div>
+  <a href="https://instagram.com/blushe_makeup_artistry" target="_blank" class="ig-follow-btn">
+    <i class="fa-brands fa-instagram ig-gradient-icon"></i>
+    Follow @blushe_makeup_artistry
+  </a>
+</section>
+
+<!-- ===================== LOCATION ===================== -->
 <section id="location">
+  <span class="section-label">Find Me</span>
   <h2>Location</h2>
-   <div class="content">
-    <p>Located in Pretoria
-      <br>
-      777 Rubenstein Dr, Moreleta Park, Pretoria, 0044, South Africa
-    </p>
+  <div class="content">
+    <p>777 Rubenstein Dr, Moreleta Park, Pretoria, 0044, South Africa</p>
   </div>
   <div class="map-container" style="width:100%;max-width:100vw;margin:2rem 0;display:flex;justify-content:center;">
-    <a href="https://www.google.com/maps/place/777+Rubenstein+Dr,+Moreleta+Park,+Pretoria,+0044,+South+Africa" target="_blank" style="display:block;border-radius:12px;max-width:600px;width:100%;overflow:hidden;">
+    <a href="https://www.google.com/maps/place/777+Rubenstein+Dr,+Moreleta+Park,+Pretoria,+0044,+South+Africa" target="_blank" style="display:block;border-radius:3px;max-width:600px;width:100%;overflow:hidden;">
       <iframe
         src="https://www.google.com/maps?q=777+Rubenstein+Dr,+Moreleta+Park,+Pretoria,+0044,+South+Africa&output=embed"
         width="100%"
@@ -203,9 +579,10 @@
 </section>
 
 <footer>
-  &copy; 2025 Blushé Makeup Artist — Crafted with ❤️
+  &copy; 2025 Blushé Artistry — Crafted with love
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script src="./script.js"></script>
 <div style="display:none;">
   <a href="/bridal-makeup-pretoria.html">Bridal Makeup Pretoria</a>
